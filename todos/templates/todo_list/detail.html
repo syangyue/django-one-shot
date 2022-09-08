@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head></head>
+    <title></title>
+    <body>
+        <main>
+            <div>
+                <h1>{{ todolist.name }}</h1>
+                <h2>Tasks</h2>
+                <table>
+                    <thead>
+                        <th>Task</th>
+                        <th>Due Date</th>
+                    </thead>
+                    <tbody>
+                        {% for todo in todolist.items.all %}
+                            <tr>
+                                <td>
+                                    <a href="{% url 'todo_list_detail' todo.pk %}">{{ todo.task }}</a>
+                                </td>
+                                <td>{{ todo.due_date }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </body>
+</html>
