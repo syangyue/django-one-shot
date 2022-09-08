@@ -1,7 +1,12 @@
+
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import TodoList, TodoItem
+from sqlite3 import IntegrityError
+from django.shortcuts import redirect, render
+from django.urls import reverse_lazy
+from django.http import HttpResponseRedirect
 
 
 class TodoListListView(ListView):
@@ -12,3 +17,12 @@ class TodoListListView(ListView):
 class TodoListDetailView(DetailView):
     model = TodoList
     template_name = "todo_list/detail.html"
+
+
+class TodolistCreateView(CreateView):
+    model = TodoList
+    template_name = "todo_list/new.html"
+    fields = ["name"]
+
+    def get_success_url(self):
+        return reverse_lazy("todo_list_detail", args=[self.object.id])
