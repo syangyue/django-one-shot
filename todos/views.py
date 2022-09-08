@@ -26,3 +26,12 @@ class TodolistCreateView(CreateView):
 
     def get_success_url(self):
         return reverse_lazy("todo_list_detail", args=[self.object.id])
+
+
+class TodoListUpdateView(UpdateView):
+    model = TodoList
+    template_name = "todo_list/edit.html"
+    fields = ["name"]
+
+    def get_success_url(self):
+        return reverse_lazy("todo_list_detail", args=[self.object.id])
