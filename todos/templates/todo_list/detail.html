@@ -1,8 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head></head>
-    <title></title>
-    <body>
+{% extends "base.html" %}
+
+{% block content %}
         <main>
             <div>
                 <h1>{{ todolist.name }}</h1>
@@ -31,5 +29,4 @@
                 </table>
             </div>
         </main>
-    </body>
-</html>
+{% endblock content %}

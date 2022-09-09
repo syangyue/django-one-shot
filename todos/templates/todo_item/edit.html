@@ -1,17 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head></head>
-    <title></title>
-    <body>
+{% extends "base.html" %}
+
+{% block content %}
         <main>
             <div>
                 <h1>Update item</h1>
                 <form method="post">
                     {% csrf_token %}
                     {{ form.as_p }}
-                    <button type="Update">Submit</button>
+                    <button type="submit">Update</button>
                 </form>
             </div>
         </main>
-    </body>
-<html>
+{% endblock content %}

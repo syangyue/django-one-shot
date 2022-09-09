@@ -1,35 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head></head>
-    <title></title>
-    <body>
-        <main>
-            <div>
-                <h1>My Lists</h1>
-                <div>
-                    <p>
-                        <a href="{% url 'todo_list_create' %}">Create a new list</a>
-                    </p>
-                    <p>
-                    <a href="{% url 'todo_item_create' %}">Create a new item</a>
-                </p>
-                <table>
-                    <thead>
-                        <th>Name</th>
-                        <th>Numbers of items</th>
-                    </thead>
-                    <tbody>
-                        {% for todo in todolist_list %}
-                            <tr>
-                                <td>
-                                    <a href="{% url 'todo_list_detail' todo.pk %}">{{ todo.name }}</a>
-                                </td>
-                                <td>{{ todolist_list|length }}</td>
-                            </tr>
-                        {% endfor %}
-                    </tbody>
-                </table>
-            </div>
-        </main>
-    </body>
-</html>
+{% extends "base.html" %}
+{% block content %}
+<main>
+  <div>
+     <h1>My Lists</h1>
+
+    <p>
+      <a href="{% url 'todo_list_create' %}">Create a new list</a>
+    </p>
+    <p>
+      <a href="{% url 'todo_item_create' %}">Create a new item</a>
+    </p>
+    <table>
+      <thead>
+        <th>Name</th>
+        <th>Number of items</th>
+      </thead>
+      <tbody>
+        {% for todo in todolist_list %}
+        <tr>
+          <td>
+            <a href="{% url 'todo_list_detail' todo.pk %}">{{ todo.name }}</a>
+          </td>
+          <td>{{ todo.items.all|length }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</main>
+{% endblock content %}

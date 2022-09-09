@@ -1,17 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head></head>
-    <title></title>
-    <body>
-        <main>
-            <div>
-                <h1>Create a new list</h1>
-                <form method="post">
-                    {% csrf_token %}
-                    {{ form.as_p }}
-                    <button type="Update">Submit</button>
-                </form>
-            </div>
-        </main>
-    </body>
-<html>
+{% extends "base.html" %}
+
+{% block content %}
+    <main>
+        <div>
+            <h1>Create a new list</h1>
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit">Create</button>
+            </form>
+        </div>
+    </main>
+{% endblock content %}
