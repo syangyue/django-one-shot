@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head></head>
+    <title></title>
+    <body>
+        <main>
+            <div>
+                <h1>Create a new item</h1>
+                <form method="post">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    {% comment %} <p>
+                        <label>Task:</label>
+                        <input type="text" name="task">
+                    </p>
+                    <p>
+                        <label>Due date:</label>
+                        <input type="text" name="due date">
+                    </p>
+                    <p>
+                        <label>Is completed:</label>
+                        <input type="checkbox" name="is_completed">
+                    </p>
+                    <p>
+                        <label>List:</label>
+                        <select name="list">
+
+                                <option>
+                                    {{ todo.name }}
+                                </option>
+
+                        </select>
+                    </p> {% endcomment %}
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+        </main>
+    </body>
+    <html>
