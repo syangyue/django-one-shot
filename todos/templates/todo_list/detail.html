@@ -22,7 +22,7 @@
                         {% for todo in todolist.items.all %}
                             <tr>
                                 <td>
-                                    <a href="{% url 'todo_list_detail' todo.pk %}">{{ todo.task }}</a>
+                                    <a href="{% url 'todo_item_update' todo.pk %}">{{ todo.task }}</a>
                                 </td>
                                 <td>{{ todo.due_date }}</td>
                             </tr>
