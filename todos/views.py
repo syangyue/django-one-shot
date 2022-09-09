@@ -1,12 +1,8 @@
-
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import TodoList, TodoItem
-from sqlite3 import IntegrityError
-from django.shortcuts import redirect, render
 from django.urls import reverse_lazy
-from django.http import HttpResponseRedirect
 
 
 class TodoListListView(ListView):

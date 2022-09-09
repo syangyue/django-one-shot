@@ -14,9 +14,7 @@ class TodoItem(models.Model):
     due_date = models.DateTimeField(null=True)
     is_completed = models.BooleanField(default=False)
     list = models.ForeignKey(
-        TodoList,
-        related_name="items",
-        on_delete=models.CASCADE
+        TodoList, related_name="items", on_delete=models.CASCADE
     )
 
     def __str__(self):
